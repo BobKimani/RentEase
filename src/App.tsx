@@ -1,7 +1,12 @@
 import React from 'react';
-import { Building2, Users, CreditCard, Bell, Shield, Home, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import {Building2, Users, CreditCard, Bell, ArrowRight} from 'lucide-react';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
-function App() {
+function LandingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -18,10 +23,16 @@ function App() {
               <a href="#pricing" className="text-white hover:text-blue-200">Pricing</a>
             </div>
             <div className="space-x-4">
-              <button className="px-4 py-2 text-blue-600 bg-white rounded-lg hover:bg-blue-50">
+              <button
+                onClick={() => navigate('/login')}
+                className="px-4 py-2 text-blue-600 bg-white rounded-lg hover:bg-blue-50"
+              >
                 Login
               </button>
-              <button className="px-4 py-2 text-white border-2 border-white rounded-lg hover:bg-white hover:text-blue-600">
+              <button
+                onClick={() => navigate('/signup')}
+                className="px-4 py-2 text-white border-2 border-white rounded-lg hover:bg-white hover:text-blue-600"
+              >
                 Sign Up
               </button>
             </div>
@@ -42,8 +53,8 @@ function App() {
               </button>
             </div>
             <div className="md:w-1/2 mt-10 md:mt-0">
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+              <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                 alt="Modern apartment building"
                 className="rounded-lg shadow-2xl"
               />
@@ -59,17 +70,17 @@ function App() {
             Everything You Need in One Platform
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
-            <FeatureCard 
+            <FeatureCard
               icon={<Users className="h-8 w-8 text-blue-600" />}
               title="User Management"
               description="Separate portals for landlords and tenants with secure authentication and profile management."
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<CreditCard className="h-8 w-8 text-blue-600" />}
               title="Direct Payments"
               description="Integrated payment system for hassle-free rent collection and automatic payment tracking."
             />
-            <FeatureCard 
+            <FeatureCard
               icon={<Bell className="h-8 w-8 text-blue-600" />}
               title="Smart Notifications"
               description="Automated reminders for rent dues and instant payment confirmations."
@@ -86,24 +97,12 @@ function App() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
-              <Step 
-                number="1"
-                title="Create Your Account"
-                description="Sign up as a landlord or tenant and complete your profile."
-              />
-              <Step 
-                number="2"
-                title="Connect Properties"
-                description="Add your properties or connect with your landlord."
-              />
-              <Step 
-                number="3"
-                title="Manage Payments"
-                description="Set up automatic payments or pay rent directly through the platform."
-              />
+              <Step number="1" title="Create Your Account" description="Sign up as a landlord or tenant and complete your profile." />
+              <Step number="2" title="Connect Properties" description="Add your properties or connect with your landlord." />
+              <Step number="3" title="Manage Payments" description="Set up automatic payments or pay rent directly through the platform." />
             </div>
             <div className="relative">
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
                 alt="Person using laptop"
                 className="rounded-lg shadow-xl"
@@ -172,7 +171,13 @@ function App() {
   );
 }
 
-function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
       <div className="mb-4">{icon}</div>
@@ -182,7 +187,13 @@ function FeatureCard({ icon, title, description }) {
   );
 }
 
-function Step({ number, title, description }: { number: string; title: string; description: string }) {
+interface StepProps {
+  number: string;
+  title: string;
+  description: string;
+}
+
+function Step({ number, title, description }: StepProps) {
   return (
     <div className="flex items-start">
       <div className="flex-shrink-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
@@ -193,6 +204,18 @@ function Step({ number, title, description }: { number: string; title: string; d
         <p className="text-gray-600">{description}</p>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
