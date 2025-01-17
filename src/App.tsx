@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import {Building2, Users, CreditCard, Bell, ArrowRight} from 'lucide-react';
 import Login from './components/Login';
 import Signup from './components/Signup';
-
+import Admin from './components/Admin';
 function LandingPage() {
   const navigate = useNavigate();
 
@@ -213,6 +213,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
