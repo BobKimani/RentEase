@@ -4,6 +4,8 @@ import {Building2, Users, CreditCard, Bell, ArrowRight} from 'lucide-react';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Admin from './components/Admin';
+import Tenant from './components/Tenant';
+
 function LandingPage() {
   const navigate = useNavigate();
 
@@ -214,6 +216,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/tenant" element={<Tenant />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
