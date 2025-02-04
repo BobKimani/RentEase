@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import {Building2, Users, CreditCard, Bell, ArrowRight} from 'lucide-react';
-import { AuthProvider } from './components/contexts/AuthContext';
-import Login from './components/Auth/Login';
-import Adminlogin from './components/Auth/Adminlogin';
-import Signup from './components/Auth/Signup';
-import Admin from './components/Admin';
+import { AuthProvider } from './contexts/AuthContext';
+import Login from './Auth/Login';
+import Adminlogin from './Auth/Adminlogin';
+import Signup from './Auth/Signup';
+import AdminDashboard from './admin/AdminDashboard';
 import Tenant from './components/Tenant';
 
 function LandingPage() {
@@ -218,7 +218,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/tenant" element={<Tenant />} />
           <Route path="/adminlogin" element={<Adminlogin />} />
           <Route path="/" element={<LandingPage />} />
