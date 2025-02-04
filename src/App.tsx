@@ -6,7 +6,7 @@ import Login from './Auth/Login';
 import Adminlogin from './Auth/Adminlogin';
 import Signup from './Auth/Signup';
 import AdminDashboard from './admin/AdminDashboard';
-import Tenant from './components/Tenant';
+import Tenant from './tenant/TenantDashboard';
 
 function LandingPage() {
   const navigate = useNavigate();

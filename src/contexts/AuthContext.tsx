@@ -9,7 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../components/lib/firebase";
+import { auth } from "../lib/firebase";
 
 // Define the context type
 interface AuthContextType {
