@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import {Building2, Users, CreditCard, Bell, ArrowRight} from 'lucide-react';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import { AuthProvider } from './components/contexts/AuthContext';
+import Login from './components/Auth/Login';
+import Adminlogin from './components/Auth/Adminlogin';
+import Signup from './components/Auth/Signup';
 import Admin from './components/Admin';
 import Tenant from './components/Tenant';
 
@@ -211,15 +213,18 @@ function Step({ number, title, description }: StepProps) {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/tenant" element={<Tenant />} />
-        <Route path="/" element={<LandingPage />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/tenant" element={<Tenant />} />
+          <Route path="/adminlogin" element={<Adminlogin />} />
+          <Route path="/" element={<LandingPage />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

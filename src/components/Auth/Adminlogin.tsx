@@ -6,7 +6,7 @@ const LoginPage = () => {
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-blue-600 to-blue-800">
       <div className="w-full max-w-md p-8 space-y-6 bg-white/95 backdrop-blur-sm rounded-lg shadow-xl mx-4">
         <div className="space-y-2 text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Log in</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Admin Log in</h1>
         </div>
         
         <div className="space-y-4">
@@ -39,26 +39,6 @@ const LoginPage = () => {
         >
           Login to your account
         </button>
-        
-        <div className="flex items-center justify-between text-sm">
-          <div className="flex items-center space-x-2">
-            <input 
-              type="checkbox" 
-              id="remember" 
-              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-            />
-            <label htmlFor="remember" className="text-gray-600">Remember me</label>
-          </div>
-          
-          <div className="text-gray-600">
-            New here?{''} 
-            <button 
-              className="text-blue-600 hover:text-blue-800 font-medium"
-            >
-              <a href="/Signup">Sign up!</a>       
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
